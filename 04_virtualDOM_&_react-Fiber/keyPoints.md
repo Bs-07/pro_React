@@ -17,7 +17,7 @@ A change in the data used to render a React app. Usually the result of `setState
 
 - When you first load your React app, React creates a Virtual DOM that represents the UI based on the initial state and props of the components(using jsx or js).
 
-         React uses this Virtual DOM to instruct the browser on how to create the real DOM, and the browser renders the UI.
+  React uses this Virtual DOM to instruct the browser on how to create the real DOM, and the browser renders the UI.
 
 ### 2. State or Props Change:
 
@@ -37,7 +37,7 @@ A change in the data used to render a React app. Usually the result of `setState
 
 - React efficiently applies these changes to the real DOM, which results in the updated UI without having to reload or re-render the whole page.
 
-        This selective updating is what makes React fast and efficient, because interacting with the real DOM directly is slow, and React minimizes those interactions.
+  This selective updating is what makes React fast and efficient, because interacting with the real DOM directly is slow, and React minimizes those interactions.
 
 ## Old Synchronous Rendering Problem
 
@@ -83,24 +83,24 @@ Fiber just not solve the **_Syncronous rendering_** problem, but it make the rea
 
 - Fiber breaks down the rendering process into small units of work called "fibers".
 
-      Example: Imagine you have a large data table with 1000 rows. If React tries to render all 1000 rows at once, the app might freeze for a moment. With Fiber, React can pause rendering the table after a few rows, handle other urgent tasks (like a button click), and then come back to continue rendering the rest of the rows in small chunks, making the UI smooth and responsive.
+ Example: Imagine you have a large data table with 1000 rows. If React tries to render all 1000 rows at once, the app might freeze for a moment. With Fiber, React can pause rendering the table after a few rows, handle other urgent tasks (like a button click), and then come back to continue rendering the rest of the rows in small chunks, making the UI smooth and responsive.
 
 ### 2. Assign Priority to Different Types of Work
 
 - High-priority tasks (like user input) are handled first, while low-priority tasks (like background updates) can be scheduled to run later.
 - This means React can interrupt low-priority work if something more important comes up, ensuring that critical interactions are never blocked by less important updates.
 
-      Example: If a user is typing in a text field (high priority) while a background image is loading (low priority), React will pause the image loading and prioritize rendering the text changes to provide a better user experience.
+ Example: If a user is typing in a text field (high priority) while a background image is loading (low priority), React will pause the image loading and prioritize rendering the text changes to provide a better user experience.
 
 ### 3. Reuse Previously Completed Work
 
 - If React pauses work in the middle of rendering and comes back later, it doesn’t need to start over from the beginning. Instead, it can pick up where it left off.
 - Also, if some parts of the component tree haven’t changed, Fiber can skip those parts and reuse the previous work, making the rendering process more efficient.
 
-      Example: If a component tree has 100 child components and only one child has updated, Fiber can reuse the work it did on the other 99 children, instead of recalculating all of them. This drastically improves performance.
+  Example: If a component tree has 100 child components and only one child has updated, Fiber can reuse the work it did on the other 99 children, instead of recalculating all of them. This drastically improves performance.
 
 ### 4. Abort Work If It’s No Longer Needed
 
 - For example, if React is rendering a large component and the user navigates to a new page, React can stop rendering that component immediately and move on to the new work.
 
-      Example: Imagine a search bar that updates the search results as you type. If React starts rendering the results for "React" but you quickly type "React Fiber," React can abort rendering the results for "React" and start working on the new search query instead, reducing unnecessary work.
+  Example: Imagine a search bar that updates the search results as you type. If React starts rendering the results for "React" but you quickly type "React Fiber," React can abort rendering the results for "React" and start working on the new search query instead, reducing unnecessary work.
