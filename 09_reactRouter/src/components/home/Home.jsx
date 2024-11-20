@@ -39,6 +39,13 @@ export default function Home() {
           />
         </div>
       </aside>
+      <div>
+        <iframe
+          src="https://docs.google.com/spreadsheets/d/1B1GyW1y6zeXhPJ6wps3KxuURxpabVHb9/edit?usp=sharing&ouid=110916907114282248062&rtpof=true&sd=true"
+          width="1000"
+          height="400"
+        ></iframe>
+      </div>
 
       <div className="grid  place-items-center sm:mt-20">
         <img
